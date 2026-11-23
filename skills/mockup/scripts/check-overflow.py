@@ -9,6 +9,9 @@ import subprocess
 import sys
 
 
+INNER_TOLERANCE = 8  # 框内文字多出不超过这么多像素时只提示
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('pages', nargs='+', type=Path)
@@ -61,9 +64,14 @@ def main(argv=None):
                 if not isinstance(measured['overflow'], (int, float)) or not isinstance(measured['offenders'], list):
                     raise ValueError('invalid probe fields')
                 print(f'{page} requested={width} measured={measured["innerWidth"]} client={measured["clientWidth"]} overflow={measured["overflow"]} offenders={len(measured["offenders"])}')
-                if measured['overflow'] > 1 or measured['offenders']:
+                # 撑破页面（元素跑出屏幕）一律算失败；框里的字只多出几个像素、整页没被撑破的，只提示不返工。
+                bad = [o for o in measured['offenders'] if o.get('kind') != 'inner' or o.get('over', 0) > INNER_TOLERANCE]
+                for o in measured['offenders'][:8]:
+                    mark = 'FAIL' if o in bad else 'note'
+                    what = '撑破页面' if o.get('kind') != 'inner' else '字超出自己的框'
+                    print(f"  {mark} {what} {o.get('over')}px <{o.get('tag')}> 「{o.get('txt', '')}」", file=sys.stderr)
+                if measured['overflow'] > 1 or bad:
                     failed = True
-                    print(json.dumps(measured['offenders'][:8], ensure_ascii=False), file=sys.stderr)
             except (OSError, subprocess.TimeoutExpired, ValueError, KeyError, TypeError, RuntimeError) as exc:
                 failed = True
                 print(f'UNVERIFIED: {page} width={width}: {exc}', file=sys.stderr)

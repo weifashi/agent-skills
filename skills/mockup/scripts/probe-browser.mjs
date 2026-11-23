@@ -71,7 +71,7 @@ try {
       if(e.namespaceURI==='http://www.w3.org/2000/svg')continue;
       const style=getComputedStyle(e),r=e.getBoundingClientRect();
       if(style.display==='none'||!e.getClientRects().length||contained(e))continue;
-      if(r.right>vw+1||r.left < -1||(style.overflowX==='visible'&&e.scrollWidth>e.clientWidth+1))offenders.push({tag:e.tagName,class:e.className?.toString(),left:r.left,right:r.right,scroll:e.scrollWidth,client:e.clientWidth});
+      const txt=(e.textContent||'').replace(/\\s+/g,' ').trim().slice(0,40);const base={tag:e.tagName.toLowerCase(),class:e.className?.toString(),txt};if(r.right>vw+1||r.left < -1)offenders.push({...base,kind:'page',over:Math.round(Math.max(r.right-vw,-r.left))});else if(style.overflowX==='visible'&&e.scrollWidth>e.clientWidth+1)offenders.push({...base,kind:'inner',over:e.scrollWidth-e.clientWidth});
     }
     return {requested:${width},innerWidth:innerWidth,clientWidth:vw,overflow:Math.max(root.scrollWidth,document.body.scrollWidth)-vw,offenders};
   })()`});

@@ -230,14 +230,35 @@ font-family:var(--mono);font-size:14px;line-height:1.6;color:#334155;overflow-x:
 .glance .persona dl{display:grid;grid-template-columns:4em minmax(0,1fr);gap:4px 10px;margin:8px 0 0}
 .glance .persona dt{font-weight:700}.glance .persona dd{margin:0}
 .glance .quote{margin:10px 0 0;padding:8px 12px;background:#f8fafc;border-radius:6px}
-.glance .bars{display:grid;gap:10px;margin:12px 0}
-.glance .bar{display:grid;grid-template-columns:minmax(5em,28%) minmax(0,1fr) 4em;align-items:center;gap:10px}
-.glance .bar i{display:block;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--amber) var(--w,0%),#eef1f5 0)}
-.glance .bar b{text-align:right;font-variant-numeric:tabular-nums}
+.bars{display:grid;gap:10px;margin:12px 0}
+.bars .bar{display:grid;grid-template-columns:minmax(5em,28%) minmax(0,1fr) 4em;align-items:center;gap:10px}
+.bars .bar i{display:block;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--amber) var(--w,0%),#eef1f5 0)}
+.bars .bar b{text-align:right;font-variant-numeric:tabular-nums}
 .glance .todo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;list-style:none;padding:0;margin:12px 0;counter-reset:n}
 .glance .todo li{border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:8px;padding:10px 12px;background:#fff;counter-increment:n;min-width:0}
 .glance .todo li:before{content:counter(n);display:block;font:700 14px var(--mono);color:#b45309}
-@media(max-width:760px){.glance .verdict{font-size:19px}.glance .grid2{grid-template-columns:1fr}.glance .persona{grid-template-columns:1fr}.glance .av{width:56px;height:56px}.glance .bar{grid-template-columns:minmax(0,1fr) 3.5em}.glance .bar span{grid-column:1/-1}}
+@media(max-width:760px){.glance .verdict{font-size:19px}.glance .grid2{grid-template-columns:1fr}.glance .persona{grid-template-columns:1fr}.glance .av{width:56px;height:56px}.bars .bar{grid-template-columns:minmax(0,1fr) 3.5em}.bars .bar span{grid-column:1/-1}}
+/* ===== N 步骤条:一步一帧 ===== */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 26px;margin:12px 0;counter-reset:s}
+.steps .s{position:relative;counter-increment:s;min-width:0}
+.steps .s + .s::before{content:"›";position:absolute;left:-19px;top:64px;color:var(--mut2);font-size:22px}
+.steps .s .fr{border:1px solid var(--line2);border-radius:10px;background:#fff;min-height:140px;padding:10px;font-size:13px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.steps .s .fr.hit{border-color:var(--green);box-shadow:0 0 0 2px #bbf7d0}
+.steps .s .cap{margin-top:8px;font-size:14px;color:var(--ink2)}
+.steps .s .cap::before{content:counter(s);display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font:700 12px var(--mono);margin-right:6px}
+@media(max-width:700px){.steps .s + .s::before{display:none}}
+/* ===== P 待拍板卡 ===== */
+.asks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:12px 0;counter-reset:q}
+.asks .q{border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:8px;background:#fff;padding:12px 14px;counter-increment:q;min-width:0}
+.asks .q .t{font-size:14px;color:var(--mut)}
+.asks .q .t::before{content:counter(q) " ";font:700 14px var(--mono);color:var(--orange)}
+.asks .q .a{font-size:22px;font-weight:700;color:#15803d;line-height:1.3;margin:4px 0}
+.asks .q .w{font-size:14px;color:var(--ink2)}
+.asks .q .o{font-size:13px;color:var(--mut);margin-top:6px}
+/* ===== Q 折叠细节 ===== */
+details.more{border:1px dashed var(--line2);border-radius:6px;padding:8px 12px;margin:12px 0;background:#fafafa}
+details.more>summary{cursor:pointer;font-size:14px;color:var(--mut)}
+details.more[open]>summary{margin-bottom:8px}
 /* font-scale-2 */</style>
 </head>
 <body>
@@ -251,7 +272,7 @@ font-family:var(--mono);font-size:14px;line-height:1.6;color:#334155;overflow-x:
   <a href="#o">0 一页看懂</a><a href="#a">A 后台外壳</a><a href="#b">B 列表页</a><a href="#c">C 小票</a><a href="#d">D 时间线</a>
   <a href="#e">E 矩阵表</a><a href="#f">F 双栏对照</a><a href="#g">G 要点卡</a><a href="#h">H 差异清单</a>
   <a href="#i">I 新旧标注</a><a href="#j">J 规则卡</a><a href="#k">K ASCII</a><a href="#l">L mermaid</a>
-  <a href="#m">M 数字条</a><a href="#x">X 基础件</a>
+  <a href="#m">M 数字条</a><a href="#n">N 步骤条</a><a href="#p">P 待拍板</a><a href="#q">Q 折叠细节</a><a href="#x">X 基础件</a>
 </div></div>
 
 <div class="wrap">
@@ -357,7 +378,7 @@ font-family:var(--mono);font-size:14px;line-height:1.6;color:#334155;overflow-x:
 
 <div class="st" id="f">
   <h3 class="st-h"><span class="n">F</span>并排双栏对照<small>.cols</small></h3>
-  <div class="use">用于:改动落在真实界面的哪个位置(其余不动)。改前 / 改后各一栏。</div>
+  <div class="use">用于:凡是「改」,都用它。左边现在的样子,右边改后的样子,栏里放界面帧(手机帧、后台壳、列表都行);改动处加绿框 .newf,其余原样照画。</div>
   <div class="cols">
     <div class="col"><div class="ch">改前</div><div class="cb">
       <div class="row"><span class="k">合计</span><span class="v">64.00</span></div>
@@ -462,6 +483,35 @@ order_pay
     <div class="s r"><div class="v">5</div><div class="l">业务规则改动</div></div>
     <div class="s r"><div class="v">1</div><div class="l">高风险</div></div>
   </div>
+</div>
+
+<div class="st" id="n">
+  <h3 class="st-h"><span class="n">N</span>步骤条:一步一帧<small>.steps</small></h3>
+  <div class="use">用于:用户一步步怎么操作。每步画出那一屏,下面只写一句「点了什么 → 看到什么」。新加或改动的那一步给帧加 .hit。</div>
+  <div class="steps">
+    <div class="s"><div class="fr"><b>订单列表</b><div class="row"><span class="k">#1024 张三</span><span class="v">¥56</span></div><div class="row"><span class="k">#1023 李四</span><span class="v">¥28</span></div></div><div class="cap">点某一单的「退款」</div></div>
+    <div class="s"><div class="fr hit"><b>确认退款</b><div class="row"><span class="k">退款金额</span><span class="v">¥56</span></div><div class="row"><span class="k">退后不能撤销</span><span class="v"></span></div></div><div class="cap">弹出确认框<span class="tag-new">新增</span></div></div>
+    <div class="s"><div class="fr"><b>订单列表</b><div class="row"><span class="k">#1024 张三</span><span class="v">已退款</span></div><div class="row"><span class="k">#1023 李四</span><span class="v">¥28</span></div></div><div class="cap">点「确认」→ 这一单变成已退款</div></div>
+  </div>
+</div>
+
+<div class="st" id="p">
+  <h3 class="st-h"><span class="n">P</span>待拍板卡<small>.asks</small></h3>
+  <div class="use">用于:要对方定的事。一张卡一件事:问题、推荐的答案(大字)、一句理由、其它选项。不要写成一段段文字。</div>
+  <div class="asks">
+    <div class="q"><div class="t">确认框用哪个方案</div><div class="a">方案 A</div><div class="w">少点一下,老板自己操作够用</div><div class="o">另一个:方案 B(要先勾选)</div></div>
+    <div class="q"><div class="t">30 天怎么算</div><div class="a">按下单时刻起 30×24 小时</div><div class="w">和后台现有的时间算法一致</div><div class="o">另一个:算到第 30 天 23:59</div></div>
+    <div class="q"><div class="t">退多少</div><div class="a">整单全退</div><div class="w">这次不做部分退款</div></div>
+  </div>
+</div>
+
+<div class="st" id="q">
+  <h3 class="st-h"><span class="n">Q</span>折叠细节<small>details.more</small></h3>
+  <div class="use">用于:对方不一定要看、但评审或开发会查的内容(文件清单、字段明细、代码位置、数据来源)。默认收起,正文只留图和结论。</div>
+  <details class="more"><summary>想看细节再点开:涉及的文件(2 个)</summary>
+    <pre class="ascii">app.py              +48 -1    订单接口
+static/orders.html  +20 -0    订单页</pre>
+  </details>
 </div>
 
 <div class="st" id="x">

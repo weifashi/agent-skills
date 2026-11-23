@@ -123,11 +123,11 @@ background:#fff;border:2px solid var(--line2)}
 
 /* F 并排双栏对照 */
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
-.cols .col{border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.cols .col{border:1px solid var(--line);border-radius:6px;overflow:hidden;min-width:0}
 .cols .col .ch{padding:6px 11px;font-size:13px;font-weight:600;background:#f9fafb;border-bottom:1px solid var(--line);color:var(--mut)}
 .cols .col.new .ch{background:#f0fdf4;color:#15803d}
-.cols .col .cb{padding:12px}
-@media(max-width:700px){.cols{grid-template-columns:1fr}}
+.cols .col .cb{padding:12px;overflow-x:auto}  /* 栏里的帧太宽时在栏内横向滚,不把两栏挤成上下 */
+@media(max-width:700px){.cols{grid-template-columns:1fr}}  /* 只有手机宽度才变成上下 */
 
 /* G 三色要点卡网格 */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:12px 0}
@@ -378,7 +378,7 @@ details.more[open]>summary{margin-bottom:8px}
 
 <div class="st" id="f">
   <h3 class="st-h"><span class="n">F</span>并排双栏对照<small>.cols</small></h3>
-  <div class="use">用于:凡是「改」,都用它。左边现在的样子,右边改后的样子,栏里放界面帧(手机帧、后台壳、列表都行);改动处加绿框 .newf,其余原样照画。</div>
+  <div class="use">用于:凡是「改」,都用它。<b>左右各一栏,不要改成上下摞</b>:左边现在的样子,右边改后的样子,栏里放界面帧(手机帧、后台壳、列表都行),改动处加绿框 .newf。栏里放不下时,只画和改动有关的那几列、那几行;还不够就在 .cols 外面包一层 .bleed。</div>
   <div class="cols">
     <div class="col"><div class="ch">改前</div><div class="cb">
       <div class="row"><span class="k">合计</span><span class="v">64.00</span></div>

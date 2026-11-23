@@ -11,7 +11,7 @@ if (!chrome || !page || !Number.isInteger(width) || typeof WebSocket !== 'functi
   console.error('Requires Chrome path, local page, integer width, Node >=22 WebSocket');
   process.exit(2);
 }
-const profile = await mkdtemp(join(tmpdir(), 'html-mockup-'));
+const profile = await mkdtemp(join(tmpdir(), 'mockup-'));
 let child, ws;
 let nextId = 0;
 const pending = new Map();

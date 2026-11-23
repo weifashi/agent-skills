@@ -22,10 +22,17 @@ Claude Code：
 
 装好后自动触发，也可以手动调用：`/wfs:mockup`、`/wfs:bug-hunt`、`/wfs:project` ……
 
-Codex 等其他工具：
+Codex：
 
 ```bash
-npx skills add weifashi/agent-skills -a codex
+codex plugin marketplace add weifashi/agent-skills
+codex plugin add wfs@wfs
+```
+
+其他工具（Cursor、Gemini CLI 等）：
+
+```bash
+npx skills add weifashi/agent-skills
 ```
 
 ## 更新
@@ -34,7 +41,7 @@ npx skills add weifashi/agent-skills -a codex
 
 ```
 /plugin marketplace update wfs        # Claude Code
-npx skills update                     # Codex
+codex plugin marketplace upgrade      # Codex
 ```
 
 ## 这套技能的共同约定

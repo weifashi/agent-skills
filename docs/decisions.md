@@ -23,3 +23,4 @@
 | D017 | 2026-11-24 | 技能 `funnel-tracking` 改名为 `track`，调用是 `/wfs:track`；触发用的话不变 | 原名太长；track 对应「埋点」，也不和自带命令撞名 | funnel；stats（和 Claude Code 自带的 /stats 撞名）；ads（它不管广告投放） | 用户 | 有效 |
 | D018 | 2026-11-24 | 技能 `site-seo` 改名为 `seo`，调用是 `/wfs:seo` | 名字更短 | 保持原名 | 用户 | 有效 |
 | D019 | 2026-11-24 | 技能 `promo-page` 改名为 `site`，调用是 `/wfs:site` | 对应平时说的「做个官网」，更短，和 `seo` 成对 | landing；website；promo | 用户 | 有效 |
+| D020 | 2026-11-24 | 技能 `bug-hunt` 改名为 `bugs`，调用是 `/wfs:bugs` | 和它写的 `docs/bugs.md` 同名，对应「找 bug」 | qa；check；ready（Agent 提醒过 `bugs` 和自带的 `/bug` 只差一个字母） | 用户 | 有效 |

@@ -21,7 +21,7 @@ license: MIT
    ├─ decisions.md        决策记录，一行一条
    ├─ architecture.md     架构的最终总结，一页以内      ┐
    ├─ mockups/            原型、改动汇报（mockup 技能）  ├ 用到时才建
-   └─ bugs.md             提测检查的问题清单（bug-hunt） ┘
+   └─ bugs.md             提测检查的问题清单（bugs 技能） ┘
 ```
 
 起项目时只建前四样，不预先建空文件。项目已有等价的文件（如 `requirements.md`、`docs/adr/`）就沿用，在 AGENTS.md 里指过去，不为了对齐本约定搬家。

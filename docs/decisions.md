@@ -5,7 +5,7 @@
 | 编号 | 日期 | 定了什么 | 为什么 | 没选什么 | 谁定的 | 状态 |
 |---|---|---|---|---|---|---|
 | D001 | 2026-11-23 | project-orchestrator 不并进来，原仓库归档 | 暂时不用，归档可恢复 | 永久删除 | 用户 | 已被 D014 取代 |
-| D002 | 2026-11-23 | 仓库叫 `weifashi/agent-skills` | 一看就知道是技能库 | forge、workbench、ai-skills | 用户 | 有效 |
+| D002 | 2026-11-23 | 仓库叫 `weifashi/agent-skills` | 一看就知道是技能库 | forge、workbench、ai-skills | 用户 | 已被 D021 取代 |
 | D003 | 2026-11-23 | 插件名和市场名都叫 `wfs`，调用是 `/wfs:<技能>` | 短，手动调用时好打 | kit、wf、forge、skills | 用户 | 有效 |
 | D004 | 2026-11-23 | 仓库公开 | 安装最省事 | 私有 | 用户 | 有效 |
 | D005 | 2026-11-23 | 一个仓库一个插件，技能放 `skills/<名字>/`；不写版本号，推送即更新 | 装一次全有；加技能只加目录 | 每个技能一个仓库；按版本号发版 | Agent 按业内通行做法 | 有效 |
@@ -24,3 +24,4 @@
 | D018 | 2026-11-24 | 技能 `site-seo` 改名为 `seo`，调用是 `/wfs:seo` | 名字更短 | 保持原名 | 用户 | 有效 |
 | D019 | 2026-11-24 | 技能 `promo-page` 改名为 `site`，调用是 `/wfs:site` | 对应平时说的「做个官网」，更短，和 `seo` 成对 | landing；website；promo | 用户 | 有效 |
 | D020 | 2026-11-24 | 技能 `bug-hunt` 改名为 `bugs`，调用是 `/wfs:bugs` | 和它写的 `docs/bugs.md` 同名，对应「找 bug」 | qa；check；ready（Agent 提醒过 `bugs` 和自带的 `/bug` 只差一个字母） | 用户 | 有效 |
+| D021 | 2026-11-24 | 仓库从 `weifashi/agent-skills` 改名为 `weifashi/skills`；插件名和市场名 `wfs` 不变 | 用户要求改短 | 保持 agent-skills | 用户 | 有效 |

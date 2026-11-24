@@ -1,4 +1,4 @@
-# agent-skills
+# skills
 
 wfs 的 Agent 技能库。一个仓库、一个插件（`wfs`），装一次全都有，Claude Code 和 Codex 都能用。
 
@@ -16,7 +16,7 @@ wfs 的 Agent 技能库。一个仓库、一个插件（`wfs`），装一次全�
 Claude Code：
 
 ```
-/plugin marketplace add weifashi/agent-skills
+/plugin marketplace add weifashi/skills
 /plugin install wfs@wfs
 ```
 
@@ -25,14 +25,14 @@ Claude Code：
 Codex：
 
 ```bash
-codex plugin marketplace add weifashi/agent-skills
+codex plugin marketplace add weifashi/skills
 codex plugin add wfs@wfs
 ```
 
 其他工具（Cursor、Gemini CLI 等）：
 
 ```bash
-npx skills add weifashi/agent-skills
+npx skills add weifashi/skills
 ```
 
 ## 更新

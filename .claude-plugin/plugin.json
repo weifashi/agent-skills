@@ -2,7 +2,7 @@
   "name": "wfs",
   "description": "起项目并把需求背景存进项目、原型和改动汇报、提测检查、推广页、SEO、埋点。",
   "author": { "name": "wfs", "url": "https://github.com/weifashi" },
-  "homepage": "https://github.com/weifashi/agent-skills",
-  "repository": "https://github.com/weifashi/agent-skills",
+  "homepage": "https://github.com/weifashi/skills",
+  "repository": "https://github.com/weifashi/skills",
   "license": "MIT"
 }

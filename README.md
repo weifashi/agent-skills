@@ -8,7 +8,7 @@ wfs 的 Agent 技能库。一个仓库、一个插件（`wfs`），装一次全�
 | [mockup](skills/mockup/SKILL.md) | 一页 HTML 讲清一件事：需求原型、高保真效果图、改动汇报 | 「出个原型」「给老板看做出来的样子」「这次改了什么」 |
 | [bug-hunt](skills/bug-hunt/SKILL.md) | 提测检查：对照需求查六类问题，50 条一批，给出能不能提测 | 「找 bug」「能不能提测」 |
 | [promo-page](skills/promo-page/SKILL.md) | 推广页 / 官网 / 落地页 | 「做个官网」「官网看着不高级」 |
-| [site-seo](skills/site-seo/SKILL.md) | 官网 SEO：从查词到上线 | 「做 SEO」「让谷歌搜到我们」 |
+| [seo](skills/seo/SKILL.md) | 官网 SEO：从查词到上线 | 「做 SEO」「让谷歌搜到我们」 |
 | [track](skills/track/SKILL.md) | 埋点和推广漏斗统计 | 「埋点」「看用户在哪流失」 |
 
 ## 安装
